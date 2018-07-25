@@ -32,5 +32,19 @@ class Student
   def add_boating_test(instructor,test_name, test_status)
     BoatingTest.new(self, instructor, test_name, test_status)
   end
+  
+  #Not needed
+  def boating_tests
+    BoatingTest.all.select do |test|
+      test.student == self
+    end
+  end
+
+  #Not needed
+  def instructors
+    self.boating_tests.map do |test|
+      test.instructor
+    end
+  end
 
 end

@@ -17,6 +17,13 @@ class Instructor
     end
   end
 
+#Not needed
+  def students
+    self.boating_tests.map do |test|
+      test.student
+    end
+  end
+  
   def fail_student(student_name, test_name)
 
     testObj = self.boating_tests.find do |test|
